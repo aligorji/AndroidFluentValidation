@@ -1,0 +1,5 @@
+<resources>
+	<string name="app_name">FluentValidation</string>
+	<string name="firstname">نام</string>
+	<string name="lasttname">نام خانوادگی</string>
+</resources>

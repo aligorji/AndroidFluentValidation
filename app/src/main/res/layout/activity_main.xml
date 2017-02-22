@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto">
+
+	<data>
+		<variable
+			name="command"
+			type="ir.aligorji.fluentvalidation.example.ExamCommand" />
+		<variable
+			name="z"
+			type="String" />
+
+	</data>
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_margin="8dp"
+		android:orientation="vertical">
+
+		<android.support.design.widget.TextInputLayout
+			android:id="@+id/txtEmailLayout"
+			android:layout_width="match_parent"
+			android:hint="@{command.firstName.display}"
+			android:layout_height="wrap_content"
+			app:error="@{command.firstName.error}">
+
+			<android.support.design.widget.TextInputEditText
+				android:id="@+id/txtEmail"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:inputType="textEmailAddress"
+				android:text="@={command.firstName.value}" />
+
+		</android.support.design.widget.TextInputLayout>
+
+
+		<android.support.design.widget.TextInputLayout
+			android:id="@+id/txtEmailLayout2"
+			android:layout_width="match_parent"
+			android:hint="@{command.age.display}"
+			android:layout_height="wrap_content"
+			app:error="@{command.age.error}">
+
+			<android.support.design.widget.TextInputEditText
+				android:id="@+id/txtEmail2"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:inputType="textEmailAddress"
+				android:text="@={command.age.value}" />
+
+		</android.support.design.widget.TextInputLayout>
+
+		<Button
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:enabled="true"
+			android:onClick="submit"
+			android:text="Submit" />
+
+		<TextView
+			android:background="#0f0"
+			android:layout_width="match_parent"
+			android:textColor="#000"
+			android:layout_height="wrap_content"
+			android:text="@{command.customErrors}"/>
+
+	</LinearLayout>
+</layout>
