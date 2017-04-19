@@ -103,7 +103,15 @@ public abstract class BaseRule<T> implements Rule
                     return;
                 }
 
-                rv.validate(context, (T) getParsedValue(value), display);
+                rv.validate(context,(value == null || value.isEmpty()) ? null : (T) getParsedValue(value), display);
+            }
+            catch (ValidationNumberParseException ex)
+            {
+                if (value != null && !value.isEmpty())
+                {
+                    addError(ex.getMessage());
+                    return;
+                }
             }
             catch (ValidationException ex)
             {

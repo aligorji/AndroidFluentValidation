@@ -30,7 +30,7 @@ public class ExamCommand extends CommandValidator
                 .notEmpty();
 
 
-        age.validateIfChangeValue(true).rule().equal(200);
+        age.validateIfChangeValue(true).rule().notEqual(10).notEmpty().equal(200);
 
         custom(new CustomRuleValidator()
         {

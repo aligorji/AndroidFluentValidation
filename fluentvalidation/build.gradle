@@ -1,28 +1,5 @@
 apply plugin: 'com.android.library'
 
-/*ext {
-    bintrayRepo = 'maven'
-    bintrayName = 'FluentValidation'
-
-    publishedGroupId = 'com.inthecheesefactory.thecheeselibrary'
-    libraryName = 'FBLike'
-    artifact = 'fb-like'
-
-    libraryDescription = 'A wrapper for Facebook Native Like Button (LikeView) on Android'
-
-    siteUrl = 'https://github.com/nuuneoi/FBLikeAndroid'
-    gitUrl = 'https://github.com/nuuneoi/FBLikeAndroid.git'
-
-    libraryVersion = '0.9.3'
-
-    developerId = 'nuuneoi'
-    developerName = 'Sittiphol Phanvilai'
-    developerEmail = 'sittiphol@gmail.com'
-
-    licenseName = 'The Apache Software License, Version 2.0'
-    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-    allLicenses = ["Apache-2.0"]
-}*/
 
 android {
     compileSdkVersion 25
@@ -50,6 +27,6 @@ android {
 
 dependencies {
     //compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:25.1.1'
-    compile 'com.android.support:design:25.1.1'
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support:design:25.3.1'
 }

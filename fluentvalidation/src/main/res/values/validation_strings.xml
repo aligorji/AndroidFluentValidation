@@ -1,7 +1,7 @@
 <resources>
 	<string name="validation_not_empty">وارد کردن %1$s ضروری است.</string>
 	<string name="validation_not_empty_or_whitespace">وارد کردن %1$s ضروری است.</string>
-	<string name="validation_number_parse">%1$s باید از ارقام تشکیل شود.</string>
+	<string name="validation_number_parse">%1$s باید از بصورت عددی باشد.</string>
 	<string name="validation_not_equal">%1$s نباید برابر با "%2$s" باشد.</string>
 	<string name="validation_equal">%1$s باید برابر با "%2$s" باشد.</string>
 	<string name="validation_length">%1$s باید %2$s کاراکتر داشته باشد.</string>

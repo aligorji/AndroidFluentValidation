@@ -11,6 +11,7 @@ import ir.aligorji.fluentvalidation.rules.GreaterThanRule;
 import ir.aligorji.fluentvalidation.rules.LengthRule;
 import ir.aligorji.fluentvalidation.rules.LessThanOrEqualRule;
 import ir.aligorji.fluentvalidation.rules.LessThanRule;
+import ir.aligorji.fluentvalidation.rules.NotEmptyNumberRule;
 import ir.aligorji.fluentvalidation.rules.NotEqualNumberRule;
 
 
@@ -25,7 +26,7 @@ public final class NumberRule<T extends Number>
     }
 
     @Override
-    public Double getParsedValue(String value) throws ValidationException
+    public Double getParsedValue(String value) throws ValidationNumberParseException
     {
         try
         {
@@ -33,10 +34,16 @@ public final class NumberRule<T extends Number>
         }
         catch (Throwable ignore)
         {
-            throw new ValidationException(getContext().getString(R.string.validation_number_parse, getDisplay()));
+            throw new ValidationNumberParseException(getContext().getString(R.string.validation_number_parse, getDisplay()));
         }
     }
 
+    @Override
+    public NumberRuleBuilder<T> notEmpty()
+    {
+        add(new NotEmptyNumberRule());
+        return this;
+    }
     @Override
     public NumberRuleBuilder<T> notEqual(T value)
     {

@@ -10,5 +10,5 @@ public interface Rule
     void validate();
     void stopOnFirstFailure(boolean v);
     void setDisplay(String display);
-    Object getParsedValue(String value) throws ValidationException;
+    Object getParsedValue(String value) throws ValidationNumberParseException;
 }

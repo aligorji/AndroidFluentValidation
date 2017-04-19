@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/FluentValidation.iml" filepath="$PROJECT_DIR$/FluentValidation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AndroidFluentValidation.iml" filepath="$PROJECT_DIR$/AndroidFluentValidation.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/fluentvalidation/fluentvalidation.iml" filepath="$PROJECT_DIR$/fluentvalidation/fluentvalidation.iml" />
     </modules>

@@ -22,7 +22,7 @@ public final class TextRule extends BaseRule<String> implements TextRuleBuilder
     }
 
     @Override
-    public String getParsedValue(String value) throws ValidationException
+    public String getParsedValue(String value)
     {
         return value;
     }

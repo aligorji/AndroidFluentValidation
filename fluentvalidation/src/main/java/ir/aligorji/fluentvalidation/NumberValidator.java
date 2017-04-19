@@ -24,7 +24,7 @@ public final class NumberValidator<T extends Number> extends Validator<T>
         {
             return (Number) getRule().getParsedValue(getValue());
         }
-        catch (ValidationException e)
+        catch (ValidationNumberParseException e)
         {
 
         }

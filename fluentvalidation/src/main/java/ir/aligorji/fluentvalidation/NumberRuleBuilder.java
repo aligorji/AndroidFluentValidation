@@ -4,6 +4,8 @@ package ir.aligorji.fluentvalidation;
 public interface NumberRuleBuilder<T extends Number>
 {
 
+    NumberRuleBuilder notEmpty();
+
     NumberRuleBuilder notEqual(T o);
 
     NumberRuleBuilder equal(T o);
