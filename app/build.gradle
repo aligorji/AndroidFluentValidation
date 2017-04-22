@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 
+
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
@@ -28,4 +29,5 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support:design:25.3.1'
     compile project(':fluentvalidation')
+    //compile 'com.github.aligorji:androidfluentvalidation:0.1.1'
 }
