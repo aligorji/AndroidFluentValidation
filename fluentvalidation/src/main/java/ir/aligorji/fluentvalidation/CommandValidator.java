@@ -16,6 +16,7 @@ public abstract class CommandValidator
     private String cError = null;
     private boolean stopOnFirstFailure = false;
     public final ObservableField<String> customErrors = new ObservableField<>();
+    public final ObservableField<Boolean> isValid = new ObservableField<>();
 
     public CommandValidator(Context context)
     {
@@ -114,6 +115,7 @@ public abstract class CommandValidator
 
 
         customErrors.set(cError);
+        this.isValid.set(isValid);
         return isValid;
     }
 

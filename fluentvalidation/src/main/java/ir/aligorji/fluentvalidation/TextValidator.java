@@ -45,6 +45,17 @@ public final class TextValidator extends Validator<String>
         isValidateIfChangeValue = v;
         return this;
     }
+    public TextValidator commandValidateIfChangeValue()
+    {
+        return commandValidateIfChangeValue(true);
+    }
+
+    @Override
+    public TextValidator commandValidateIfChangeValue(boolean v)
+    {
+        isCommandValidateIfChangeValue = v;
+        return this;
+    }
 
     @Override
     public TextValidator stopOnFirstFailure(boolean v)

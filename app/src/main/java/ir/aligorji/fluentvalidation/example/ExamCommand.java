@@ -25,19 +25,26 @@ public class ExamCommand extends CommandValidator
 
         firstName
                 .validateIfChangeValue()
+                .commandValidateIfChangeValue()
                 .stopOnFirstFailure()
                 .rule()
                 .notEmpty();
 
 
-        age.validateIfChangeValue(true).rule().notEqual(10).notEmpty().equal(200);
+        age
+                .validateIfChangeValue()
+                .commandValidateIfChangeValue()
+                .rule()
+                .notEmpty()
+                .notEqual(10)
+                .equal(200);
 
         custom(new CustomRuleValidator()
         {
             @Override
             public void validate(Context context) throws ValidationException
             {
-                if (age.getParsedValue() == null || age.getParsedValue().intValue() > 100)
+                if (age.getParsedValue() == null || age.getParsedValue().intValue() < 100)
                 {
                     throw new ValidationException("من");
                 }

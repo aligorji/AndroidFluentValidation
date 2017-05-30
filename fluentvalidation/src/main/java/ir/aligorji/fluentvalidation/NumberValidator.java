@@ -43,10 +43,27 @@ public final class NumberValidator<T extends Number> extends Validator<T>
         return (NumberRule<T>) super.rule();
     }
 
+
+    public NumberValidator<T> validateIfChangeValue()
+    {
+        return validateIfChangeValue(true);
+    }
+
     @Override
     public NumberValidator<T> validateIfChangeValue(boolean v)
     {
         isValidateIfChangeValue = v;
+        return this;
+    }
+    public NumberValidator<T> commandValidateIfChangeValue()
+    {
+        return commandValidateIfChangeValue(true);
+    }
+
+    @Override
+    public NumberValidator<T> commandValidateIfChangeValue(boolean v)
+    {
+        isCommandValidateIfChangeValue = v;
         return this;
     }
 
@@ -55,6 +72,11 @@ public final class NumberValidator<T extends Number> extends Validator<T>
     {
         super.stopOnFirstFailure(v);
         return this;
+    }
+
+    public NumberValidator<T> stopOnFirstFailure()
+    {
+        return (NumberValidator<T>) super.stopOnFirstFailure(true);
     }
 
 }

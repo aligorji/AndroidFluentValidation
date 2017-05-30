@@ -13,6 +13,7 @@ public abstract class Validator<T> extends BaseObservable
     private String display;
     private boolean isValid;
     protected boolean isValidateIfChangeValue;
+    protected boolean isCommandValidateIfChangeValue;
     private String value;
 
 
@@ -73,7 +74,13 @@ public abstract class Validator<T> extends BaseObservable
     {
         return isValidateIfChangeValue;
     }
+    public boolean isCommandValidateIfChangeValue()
+    {
+        return isCommandValidateIfChangeValue;
+    }
     public abstract Validator<T> validateIfChangeValue(boolean v);
+
+    public abstract Validator<T> commandValidateIfChangeValue(boolean v);
 
     public Validator<T> stopOnFirstFailure(boolean v)
     {
@@ -107,11 +114,17 @@ public abstract class Validator<T> extends BaseObservable
 
         notifyPropertyChanged(ir.aligorji.fluentvalidation.BR.value);
 
+
         if (isValidateIfChangeValue)
         {
             isValid(true);
-            //commandValidator.isValid(true);
         }
+
+        if (isCommandValidateIfChangeValue)
+        {
+            commandValidator.isValid(false);
+        }
+
     }
 
     @Bindable

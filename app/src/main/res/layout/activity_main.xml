@@ -4,6 +4,7 @@
 	xmlns:app="http://schemas.android.com/apk/res-auto">
 
 	<data>
+		<import type="android.view.View"/>
 		<variable
 			name="command"
 			type="ir.aligorji.fluentvalidation.example.ExamCommand" />
@@ -65,6 +66,13 @@
 			android:textColor="#000"
 			android:layout_height="wrap_content"
 			android:text="@{command.customErrors}"/>
+
+		<TextView
+			android:background="#00f"
+			android:layout_width="100dp"
+			android:textColor="#000"
+			android:layout_height="100dp"
+			android:visibility="@{command.isValid ? View.VISIBLE : View.GONE}"/>
 
 	</LinearLayout>
 </layout>
