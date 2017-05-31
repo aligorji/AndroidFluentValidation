@@ -17,6 +17,7 @@ public abstract class CommandValidator
     private boolean stopOnFirstFailure = false;
     public final ObservableField<String> customErrors = new ObservableField<>();
     public final ObservableField<Boolean> isValid = new ObservableField<>();
+    private OnChangeValidator mOnChangeValidatorListener = null;
 
     public CommandValidator(Context context)
     {
@@ -116,6 +117,12 @@ public abstract class CommandValidator
 
         customErrors.set(cError);
         this.isValid.set(isValid);
+
+        if (mOnChangeValidatorListener != null)
+        {
+            mOnChangeValidatorListener.onChangeValidation(isValid);
+        }
+
         return isValid;
     }
 
@@ -124,5 +131,21 @@ public abstract class CommandValidator
         customRuleValidators.add(validator);
     }
 
+    public void setListener(OnChangeValidator listener)
+    {
+        mOnChangeValidatorListener = listener;
+    }
+
+    public OnChangeValidator getListener()
+    {
+        return mOnChangeValidatorListener;
+    }
+    //=========================
+
+    public interface OnChangeValidator
+    {
+
+        void onChangeValidation(boolean isValid);
+    }
 
 }

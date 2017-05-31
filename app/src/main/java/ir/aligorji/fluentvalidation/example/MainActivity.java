@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import ir.aligorji.fluentvalidation.CommandValidator;
 import ir.aligorji.fluentvalidation.example.databinding.ActivityMainBinding;
 
 
@@ -24,7 +25,20 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
 
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-        mBinding.setCommand(new ExamCommand(this));
+
+        final ExamCommand examCommand = new ExamCommand(this);
+
+        mBinding.setCommand(examCommand);
+
+
+        examCommand.setListener(new CommandValidator.OnChangeValidator()
+        {
+            @Override
+            public void onChangeValidation(boolean isValid)
+            {
+                Toast.makeText(MainActivity.this, "XXXXX" + isValid + "XXXXXX", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         //String.format(getString(R.string.validation_not_empty), "ali");
 
