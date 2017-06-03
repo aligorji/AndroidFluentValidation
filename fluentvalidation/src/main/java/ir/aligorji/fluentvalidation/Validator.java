@@ -12,8 +12,7 @@ public abstract class Validator<T> extends BaseObservable
     private String error;
     private String display;
     private boolean isValid;
-    protected boolean isValidateIfChangeValue;
-    protected boolean isCommandValidateIfChangeValue;
+    protected boolean isAlive = true;
     private String value;
 
 
@@ -70,17 +69,25 @@ public abstract class Validator<T> extends BaseObservable
         setValue(String.valueOf(v));
     }
 
-    public boolean isValidateIfChangeValue()
+    public boolean isAlive()
     {
-        return isValidateIfChangeValue;
+        return isAlive;
     }
-    public boolean isCommandValidateIfChangeValue()
+    public Validator<T> alive()
     {
-        return isCommandValidateIfChangeValue;
+        return alive(true);
     }
-    public abstract Validator<T> validateIfChangeValue(boolean v);
 
-    public abstract Validator<T> commandValidateIfChangeValue(boolean v);
+    public Validator<T> alive(boolean v)
+    {
+        isAlive = v;
+        return this;
+    }
+
+    public Validator<T> stopOnFirstFailure()
+    {
+        return stopOnFirstFailure(true);
+    }
 
     public Validator<T> stopOnFirstFailure(boolean v)
     {
@@ -115,12 +122,12 @@ public abstract class Validator<T> extends BaseObservable
         notifyPropertyChanged(ir.aligorji.fluentvalidation.BR.value);
 
 
-        if (isValidateIfChangeValue)
+        if (isAlive())
         {
             isValid(true);
         }
 
-        if (isCommandValidateIfChangeValue)
+        if (commandValidator.isFink())
         {
             commandValidator.isValid(false);
         }

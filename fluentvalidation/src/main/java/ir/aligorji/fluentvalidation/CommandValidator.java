@@ -15,6 +15,7 @@ public abstract class CommandValidator
     private List<Validator> validators = new ArrayList<>();
     private String cError = null;
     private boolean stopOnFirstFailure = false;
+    private boolean isFink = false;
     public final ObservableField<String> customErrors = new ObservableField<>();
     public final ObservableField<Boolean> isValid = new ObservableField<>();
     private OnChangeValidator mOnChangeValidatorListener = null;
@@ -48,13 +49,27 @@ public abstract class CommandValidator
 
     public void stopOnFirstFailure()
     {
-        setStopOnFirstFailure(true);
+        stopOnFirstFailure(true);
     }
-    public void setStopOnFirstFailure(boolean stopOnFirstFailure)
+    public void stopOnFirstFailure(boolean stopOnFirstFailure)
     {
         this.stopOnFirstFailure = stopOnFirstFailure;
     }
 
+    public boolean isFink()
+    {
+        return isFink;
+    }
+
+    public void fink()
+    {
+        fink(true);
+    }
+
+    public void fink(boolean isFink)
+    {
+        this.isFink = isFink;
+    }
 
     public boolean isValid(boolean uiAction)
     {
@@ -140,6 +155,7 @@ public abstract class CommandValidator
     {
         return mOnChangeValidatorListener;
     }
+
     //=========================
 
     public interface OnChangeValidator

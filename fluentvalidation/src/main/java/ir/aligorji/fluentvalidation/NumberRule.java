@@ -30,7 +30,7 @@ public final class NumberRule<T extends Number>
     {
         try
         {
-            return Double.parseDouble(value);
+            return Double.parseDouble(value.replace("/", "."));
         }
         catch (Throwable ignore)
         {

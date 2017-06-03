@@ -34,27 +34,17 @@ public final class TextValidator extends Validator<String>
         return (TextRule) super.rule();
     }
 
-    public TextValidator validateIfChangeValue()
+
+    @Override
+    public TextValidator alive()
     {
-        return validateIfChangeValue(true);
+        return (TextValidator) super.alive();
     }
 
     @Override
-    public TextValidator validateIfChangeValue(boolean v)
+    public TextValidator alive(boolean v)
     {
-        isValidateIfChangeValue = v;
-        return this;
-    }
-    public TextValidator commandValidateIfChangeValue()
-    {
-        return commandValidateIfChangeValue(true);
-    }
-
-    @Override
-    public TextValidator commandValidateIfChangeValue(boolean v)
-    {
-        isCommandValidateIfChangeValue = v;
-        return this;
+        return (TextValidator) super.alive(v);
     }
 
     @Override

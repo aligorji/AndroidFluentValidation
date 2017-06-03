@@ -23,21 +23,18 @@ public class ExamCommand extends CommandValidator
         lastName = new TextValidator(this, R.string.lasttname);
         age = new NumberValidator<Integer>(this, "سن");
 
-        firstName
-                .validateIfChangeValue()
-                .commandValidateIfChangeValue()
-                .stopOnFirstFailure()
+        //fink();
+
+        firstName.alive(false)
                 .rule()
                 .notEmpty();
 
 
-        age
-                .validateIfChangeValue()
-                .commandValidateIfChangeValue()
+        age.alive()
                 .rule()
                 .notEmpty()
                 .notEqual(10)
-                .equal(200);
+                .length(5);
 
         custom(new CustomRuleValidator()
         {

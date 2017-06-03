@@ -27,21 +27,37 @@ public class LengthRule implements RuleValidator
 
         if (value != null)
         {
-            len = String.valueOf(value).length();
+            if (value instanceof String)
+            {
+                len = String.valueOf(value).length();
+            }
+            else if (value instanceof Double)
+            {
+                String s = String.valueOf(value);
+
+                if (s.endsWith(".0"))
+                {
+                    s = s.replace(".0", "");
+                }
+
+                s = s.replaceAll("[-+/.]", "");
+
+                len = s.length();
+            }
         }
 
-        if (min > len && len > max)
+        if (min > len || len > max)
         {
 
             String error;
 
             if (min == max)
             {
-                error = context.getString(R.string.validation_length, display, min+"");
+                error = context.getString(R.string.validation_length, display, min + "");
             }
             else
             {
-                error = context.getString(R.string.validation_length_min_max, display, min+"", max+"");
+                error = context.getString(R.string.validation_length_min_max, display, min + "", max + "");
             }
 
             throw new ValidationException(error);

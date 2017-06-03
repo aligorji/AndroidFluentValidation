@@ -21,14 +21,15 @@ public class NotEqualNumberRule<T extends Number> implements RuleValidator<T>
     @Override
     public void validate(Context context, T value, String display) throws ValidationException
     {
-        if (value != null && equalValue != null)
+        if (value == null || equalValue == null)
         {
-            if (value.doubleValue() != equalValue.doubleValue())
-            {
-                return;
-            }
+            return;
         }
 
-        throw new ValidationException(context.getString(R.string.validation_not_equal, display, equalValue));
+        if (value.doubleValue() == equalValue.doubleValue())
+        {
+            throw new ValidationException(context.getString(R.string.validation_not_equal, display, equalValue));
+        }
+
     }
 }
