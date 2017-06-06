@@ -23,11 +23,12 @@ public class ExamCommand extends CommandValidator
         lastName = new TextValidator(this, R.string.lasttname);
         age = new NumberValidator<Integer>(this, "سن");
 
-        //fink();
+        fink();
 
         firstName.alive(false)
                 .rule()
-                .notEmpty();
+                .notEmpty()
+                .length(4, 10);
 
 
         age.alive()
