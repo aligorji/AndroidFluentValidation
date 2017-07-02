@@ -1,12 +1,11 @@
 package ir.aligorji.fluentvalidation;
 
 
-import android.databinding.BaseObservable;
 import android.databinding.Bindable;
 import android.support.annotation.StringRes;
 
 
-public abstract class Validator<T> extends BaseObservable
+public abstract class Validator<T> extends Command
 {
 
     private String error;
