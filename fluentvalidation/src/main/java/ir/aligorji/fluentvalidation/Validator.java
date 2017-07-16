@@ -168,4 +168,41 @@ public abstract class Validator<T> extends Command
         notifyPropertyChanged(ir.aligorji.fluentvalidation.BR.isValid);
     }
 
+    @Bindable
+    public Integer getIValue()
+    {
+        try
+        {
+            return Integer.parseInt(getParsedValue().toString());
+        }
+        catch (Throwable ignored)
+        {
+
+        }
+        return null;
+    }
+
+    @Bindable
+    public Double getDValue()
+    {
+        try
+        {
+            return Double.parseDouble(getParsedValue().toString());
+        }
+        catch (Throwable ignored)
+        {
+
+        }
+        return null;
+    }
+
+    @Bindable
+    public Boolean getBValue()
+    {
+        Double o = getDValue();
+
+        return o != null && o != 0;
+    }
+
+
 }

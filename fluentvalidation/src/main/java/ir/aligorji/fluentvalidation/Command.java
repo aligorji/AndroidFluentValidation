@@ -7,6 +7,14 @@ import android.databinding.Bindable;
 
 public abstract class Command extends BaseObservable
 {
+    @Bindable
+    public abstract Integer getIValue();
+
+    @Bindable
+    public abstract Double getDValue();
+
+    @Bindable
+    public abstract Boolean getBValue();
 
     @Bindable
     public abstract String getValue();

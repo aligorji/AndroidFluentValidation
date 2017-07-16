@@ -2,6 +2,7 @@ package ir.aligorji.fluentvalidation.example;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
@@ -72,6 +73,15 @@ public class MainActivity extends AppCompatActivity
 
             }
         });
+
+        new Handler().postDelayed(new Runnable()
+        {
+            @Override
+            public void run()
+            {
+                Toast.makeText(MainActivity.this, mBinding.getCommand().type.getBValue()+"", Toast.LENGTH_SHORT).show();
+            }
+        },10000);
 
     }
 

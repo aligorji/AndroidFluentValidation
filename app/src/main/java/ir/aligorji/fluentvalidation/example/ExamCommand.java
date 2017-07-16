@@ -15,6 +15,7 @@ public class ExamCommand extends CommandValidator
     public TextValidator firstName;
     public TextValidator lastName;
     public NumberValidator<Integer> age;
+    public NumberValidator<Integer> type;
 
     public ExamCommand(Context context)
     {
@@ -30,6 +31,7 @@ public class ExamCommand extends CommandValidator
                 .notEmpty()
                 .length(4, 10);
 
+        type = new NumberValidator<Integer>(this, "نوع");
 
         age.alive()
                 .rule()

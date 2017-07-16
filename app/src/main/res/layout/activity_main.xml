@@ -72,12 +72,22 @@
 			android:layout_height="wrap_content"
 			android:text="@{command.customErrors}"/>
 
+		<CheckBox
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:onCheckedChanged='@{(v, checked) -> (checked) ? command.type.setValue("0") : command.type.setValue("2")}'
+			android:text="zzzzzzz"  />
+
+
 		<TextView
 			android:background="#00f"
 			android:layout_width="100dp"
 			android:textColor="#000"
 			android:layout_height="100dp"
 			android:visibility="@{command.isValid ? View.VISIBLE : View.GONE}"/>
+
+
+
 
 	</LinearLayout>
 </layout>
