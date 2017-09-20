@@ -173,7 +173,7 @@ public abstract class Validator<T> extends Command
     {
         try
         {
-            return Integer.parseInt(getParsedValue().toString());
+            return getDValue().intValue();
         }
         catch (Throwable ignored)
         {
